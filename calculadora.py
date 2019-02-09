@@ -18,34 +18,26 @@ def div(sum1, sum2):
         print("No se puede dividir entre 0")
         sys.exit()
         
-num_args = len(sys.argv)-1
+
 resultado = 0;
 
-if num_args == 3:
-    funcion = sys.argv[1]
+def main(funcion, op_1, op_2):
+
+        dicc = {"suma": sum, "resta": rest, "mul": mul, "div": div}
+        print(dicc[funcion](op_1, op_2))
+        
+
+
+if __name__ == "__main__":
+    num_args = len(sys.argv)-1
+    if num_args != 3:
+        sys.exit("Usage Error: operacion operando_1 operando_2 ")
     try: 
         op_1 = float(sys.argv[2])
         op_2 = float(sys.argv[3])
-        
-        if funcion == "suma":
-            resultado = sum(op_1, op_2)
-        elif funcion == "resta":
-            resultado = rest(op_1, op_2)
-        elif funcion == "mul":
-            resultado = mul(op_1, op_2)
-        elif funcion == "div":
-            resultado = div(op_1, op_2)
-        else:
-            print("No es operacion correcta")
-            
-        print(resultado)
-        
     except ValueError:
-        print("No has introducido un numero como operando")
-        sys.exit()
-else:
-    print("Numero de argumentos introducido incorrecto")
+        sys.exit("No has introducido un numero como operando")
 
-
-
+    funcion = sys.argv[1]
+    main(funcion, op_1, op_2)
 
