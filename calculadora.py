@@ -19,7 +19,6 @@ def div(sum1, sum2):
         sys.exit()
         
 
-resultado = 0;
 
 def main(funcion, op_1, op_2):
 
